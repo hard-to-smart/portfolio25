@@ -1,0 +1,38 @@
+export const experiences = [
+  {
+    date: "14th April 2024 - Present",
+    title: "Frontend Developer",
+    subtitle: "Tech Corp",
+    description: "Building interactive UIs with React and Tailwind CSS.",
+    tags: ["React", "Tailwind", "UI Design"],
+    site: "#",
+    cert: "#",
+  },
+  {
+    date: "Jan 2023 - Apr 2024",
+    title: "UI Designer",
+    subtitle: "Creative Designs",
+    description: "Designed animations & modern UI patterns.",
+    tags: ["Figma", "Prototyping", "Branding"],
+    site: "#",
+    cert: "#",
+  },
+  {
+    date: "Jan 2023 - Apr 2024",
+    title: "UI Designer",
+    subtitle: "Creative Designs",
+    description: "Designed animations & modern UI patterns.",
+    tags: ["Figma", "Prototyping", "Branding"],
+    site: "#",
+    cert: "#",
+  },
+  {
+    date: "Jan 2023 - Apr 2024",
+    title: "UI Designer",
+    subtitle: "Creative Designs",
+    description: "Designed animations & modern UI patterns.",
+    tags: ["Figma", "Prototyping", "Branding"],
+    site: "#",
+    cert: "#",
+  },
+];
