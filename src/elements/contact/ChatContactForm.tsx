@@ -110,7 +110,7 @@ export default function ChatContactForm() {
       "relative max-w-full px-4 py-2 rounded-2xl break-words whitespace-pre-wrap shadow-sm",
       msg.from === "user"
         ? "bg-[#dcf8c6] w-fit text-[#202c33] justify-self-end rounded-bl-3xl"
-        : "bg-white w-fit justify-self-start  dark:bg-[#171717c2] dark:text-gray-300 text-[#262d31] rounded-tr-3xl"
+        : " w-fit justify-self-start  bg-[#171717c2] text-gray-300 rounded-tr-3xl"
     )}
   >
     <div className={

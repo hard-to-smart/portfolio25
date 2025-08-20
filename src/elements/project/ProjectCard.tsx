@@ -25,10 +25,10 @@ export function ProjectCard({card}) {
               {/* Description */}
               <p className="px-6 pb-3 text-[#D7BDCA] text-sm font-light line-clamp-3">{card.description}</p>
               <div className="pb-6 px-6 flex justify-center gap-2 ">
-              <Button variant="outline" size="sm" className="dark:bg-black rounded-xl p-4" >
+              <Button variant="outline" size="sm" className="rounded-xl p-4" >
                 <Github />  Github
               </Button>
-              <Button variant="outline" size="sm" className="dark:bg-black rounded-xl p-4">
+              <Button variant="outline" size="sm" className="rounded-xl p-4">
               <View/> Live Preview
               </Button>
               

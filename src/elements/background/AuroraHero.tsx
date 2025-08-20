@@ -33,7 +33,7 @@ export const AuroraHero = () => {
       style={{
         backgroundImage,
       }}
-      className="relative grid min-h-screen place-content-center overflow-hidden bg-[#fff] dark:bg-[#020617] px-4 text-gray-200"
+      className="relative grid min-h-screen place-content-center overflow-hidden bg-[#020617] px-4 text-gray-200"
     >
       
       <div className="absolute inset-0 z-0">

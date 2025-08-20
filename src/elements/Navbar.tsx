@@ -50,7 +50,7 @@ const Navbar = () => {
           fixed left-0 top-0 h-screen w-20 md:w-28 flex flex-col justify-between items-center z-50
           transition-colors
           ${scrolled
-            ? "dark:bg-[#020617] bg-amber-50 sticky"
+            ? "bg-[#020617] sticky"
             : "bg-transparent"
           }
           hidden md:flex
@@ -68,7 +68,7 @@ const Navbar = () => {
             <Link
               to={item.path}
               key={i}
-              className="md:p-8 p-4 cursor-pointer [writing-mode:vertical-lr] tracking-wide flex flex-row-reverse rotate-180 dark:text-white text-black text-lg font-bold md:text-xl lg:text-2xl"
+              className="md:p-8 p-4 cursor-pointer [writing-mode:vertical-lr] tracking-wide flex flex-row-reverse rotate-180 text-white text-lg font-bold md:text-xl lg:text-2xl"
             >
               {item.text}
             </Link>

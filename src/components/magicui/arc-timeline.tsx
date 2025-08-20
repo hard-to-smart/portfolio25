@@ -163,8 +163,8 @@ export function ArcTimeline(props: ArcTimelineProps) {
                         className={cn(
                           "h-full w-full transition-colors duration-200",
                           isActive
-                            ? "bg-[var(--step-line-active-color,#888888)] dark:bg-[var(--step-line-active-color,#9780ff)]"
-                            : "bg-[var(--step-line-inactive-color,#b1b1b1)] dark:bg-[var(--step-line-inactive-color,#737373)]",
+                            ? " bg-[var(--step-line-active-color,#9780ff)]"
+                            : "bg-[var(--step-line-inactive-color,#737373)]",
                         )}
                         style={{
                           transformOrigin: "center top",
@@ -177,8 +177,8 @@ export function ArcTimeline(props: ArcTimelineProps) {
                           className={cn(
                             "absolute bottom-0 left-1/2 aspect-square -translate-x-1/2",
                             isActive
-                              ? "translate-y-[calc(100%_+_14px)] scale-[1.2] text-[var(--icon-active-color,#555555)] dark:text-[var(--icon-active-color,#d4d4d4)]"
-                              : "translate-y-[calc(100%_+_4px)] scale-100 text-[var(--icon-inactive-color,#a3a3a3)] dark:text-[var(--icon-inactive-color,#a3a3a3)]",
+                              ? "translate-y-[calc(100%_+_14px)] scale-[1.2]  text-[var(--icon-active-color,#d4d4d4)]"
+                              : "translate-y-[calc(100%_+_4px)] scale-100  text-[var(--icon-inactive-color,#a3a3a3)]",
                           )}
                         >
                           {step.icon}
@@ -186,7 +186,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
                         <p
                           className={cn(
                             "absolute bottom-0 left-1/2 line-clamp-3 flex w-[240px] -translate-x-1/2 translate-y-[calc(100%_+_42px)] items-center justify-center text-center text-sm transition-opacity duration-300 ease-in",
-                            "text-[var(--description-color,#555555)] dark:text-[var(--description-color,#d4d4d4)]",
+                            " text-[var(--description-color,#d4d4d4)]",
                             isActive ? "opacity-100" : "opacity-0",
                           )}
                         >
@@ -198,8 +198,8 @@ export function ArcTimeline(props: ArcTimelineProps) {
                           className={cn(
                             "absolute left-1/2 top-0 z-10 -translate-x-1/2 translate-y-[calc(-100%-24px)] whitespace-nowrap",
                             isActive
-                              ? "text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)]"
-                              : "text-[var(--time-inactive-color,#a3a3a3)] dark:text-[var(--time-inactive-color,#a3a3a3)]",
+                              ? " text-[var(--time-active-color,#d4d4d4)]"
+                              : " text-[var(--time-inactive-color,#a3a3a3)]",
                           )}
                         >
                           {line.time}
@@ -287,7 +287,7 @@ function PlaceholderLines(props: PlaceholderLinesProps) {
               }}
             >
               <div
-                className="h-full w-full bg-[var(--placeholder-line-color,#a1a1a1)] dark:bg-[var(--placeholder-line-color,#737373)]"
+                className="h-full w-full bg-[var(--placeholder-line-color,#a1a1a1)] bg-[var(--placeholder-line-color,#737373)]"
                 style={{
                   transformOrigin: "center top",
                   transform: `rotate(${
