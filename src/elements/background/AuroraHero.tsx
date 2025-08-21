@@ -36,7 +36,7 @@ export const AuroraHero = () => {
       className="relative grid min-h-screen place-content-center overflow-hidden bg-[#020617] px-4 text-gray-200"
     >
       
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 ">
         <Canvas>
           <Stars radius={50} count={2500} factor={4} fade speed={2} />
         </Canvas>

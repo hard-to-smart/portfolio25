@@ -14,19 +14,19 @@ const sections = [
     id: "#experience",
     titleProps: { prefix: "My", mainText: "Experience ." },
     Component: ExperienceSection,
-    flexDirection: 'flex-col'
+    className: 'flex-col min-h-[80vh]'
   },
   {
     id: "education",
-    titleProps: { prefix: "My", mainText: "Education ."},
+    titleProps: { prefix: "My", mainText: "Qualification ."},
     Component: EducationSection,
-    flexDirection: 'flex-col'
+    className: 'flex-col min-h-[40vh]'
   },
   {
     id: "skills",
     titleProps: { prefix: "My", mainText: "Skills ."},
     Component: Skills,
-    flexDirection: 'flex-col'
+    className: 'flex-col min-h-[80vh]'
   },
 ];
 const Home = () => {
@@ -43,28 +43,16 @@ const Home = () => {
           <section
             id={section.id}
             key={section.id}
-            className={`flex ${section.flexDirection} items-center justify-center min-h-[80vh] w-[100vw]`}
+            className={`flex ${section.className} items-center gap-10 py-10 justify-center w-[100vw]`}
             ref={ref}
           >
-            <motion.div
-              className="flex px-10 h-fit"
-              initial={{ opacity: 0, y: 50 }}
-              style={{ filter: 'blur(5px)' }}
-              animate={inView ? { filter: 'blur(0px)', opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <Title {...section.titleProps} />
-            </motion.div>
-            <motion.div
-              className="relative flex-1 w-full px-10"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+           
+              <Title {...section.titleProps}/>
+            <div
+              className="relative flex-1 w-full px-10 "
             >
               <section.Component />
-            </motion.div>
+            </div>
           </section>
         );
       })}

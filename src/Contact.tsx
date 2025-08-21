@@ -1,4 +1,3 @@
-import { Dock } from "./components/magicui/dock";
 import ChatContactForm from "./elements/contact/ChatContactForm";
 import { DockDemo } from "./elements/contact/Dock";
 import Title from "./elements/headings/Title";
@@ -7,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <div className="relative flex flex-col gap-4 items-center justify-center min-h-screen w-full">
+    <div className="relative flex flex-col items-center justify-center min-h-screen w-full">
       
       {/* Google Maps Jaipur Background */}
       <iframe
@@ -24,7 +23,7 @@ export default function Contact() {
       <DockDemo/>
       <div
         style={{ transformStyle: "preserve-3d", perspective: "1200px" }}
-        className="mx-auto z-10"
+        className="sm:mx-auto mt-10 z-1"
       >
         <motion.div
           initial={{ transform: "translateZ(8px) translateY(-2px)" }}
@@ -35,7 +34,7 @@ export default function Contact() {
             duration: 2,
             ease: "easeInOut",
           }}
-          className="relative rounded-[25px] min-w-[26rem] scale-[0.9] sm:max-w-sm md:max-w-md lg:max-w-lg  backdrop-blur-[1.5px]"
+          className="relative rounded-[25px] scale-[0.8] md:scale-[1] backdrop-blur-[1.5px]"
           style={{backgroundColor: "rgba(0, 0, 0, 0.4)",
           boxShadow: "0px 0px 10px 5px rgba(0,0,0,0.7)"}}
         >

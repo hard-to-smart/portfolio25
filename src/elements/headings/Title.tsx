@@ -12,14 +12,14 @@ const Title = ({prefix, mainText}: TitleProps) => {
 
   return (
     <h1 className="flex items-baseline">
-        <span className="text-4xl font-bold z-1 tracking-tighter md:text-5xl lg:text-8xl">
+        <span className="text-3xl font-bold z-1 tracking-tighter md:text-4xl lg:text-6xl">
           {prefix}  
         </span>
         &nbsp;&nbsp;
               <AuroraText
                 speed={1.5}
                 ref={headingRef}
-                className="ml-2 text-4xl font-bold tracking-tight transition-opacity duration-500 ease-in-out md:text-5xl lg:text-8xl"
+                className="ml-2 text-3xl font-bold tracking-tight transition-opacity duration-500 ease-in-out md:text-4xl lg:text-6xl"
               >
                 {mainText}
               </AuroraText>

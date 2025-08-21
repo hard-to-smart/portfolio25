@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import profileImg from "../assets/profile-zoom.jpg";
+import { DATA } from "./contact/data";
 
 const menuItems = [
   { path: "/", text: "About" },
-  { path: "/#experience", text: "Experience" },
   { path: "/projects", text: "Projects" },
   { path: "/contact", text: "Contact" },
 ];
@@ -74,14 +74,25 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="md:p-8 p-4">{/* Add extra icons/buttons if needed */}</div>
+        <div className="md:p-8 p-4 gap-6 flex flex-col">
+        {Object.entries(DATA.contact.social).map(([name, social])=>(
+                <a
+                  key={name}
+                  href={social.url}
+                  target="_blank"
+                  className="text-md"
+                >
+                  <social.icon className="size-8"/>  
+                </a>
+              ))
+              }</div>
       </nav>
 
       {/* Overlay & Dropdown Menu: for mobile */}
       {/* Backdrop: covers full viewport, blurs background, fades in */}
       <div
         className={`
-          fixed inset-0 z-[100] bg-black/30 backdrop-blur-sm transition-opacity duration-300
+          fixed inset-0 z-10 bg-black/30 backdrop-blur-sm transition-opacity duration-300
           ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
           md:hidden
         `}
@@ -107,7 +118,6 @@ const Navbar = () => {
         >
           &times;
         </button>
-        {/* Profile + Links (built vertically instead of rotated) */}
         <div className="flex flex-col items-center mt-16 gap-10">
           <Link to={"/"} onClick={() => setOpen(false)}>
             <img
@@ -116,17 +126,32 @@ const Navbar = () => {
               alt="Profile"
             />
           </Link>
-          <nav className="flex flex-col items-center gap-6 mt-2">
-            {menuItems.map((item, i) => (
+          <nav>
+          <div className="flex flex-col  items-center justify-between gap-6 mt-2">
+          {menuItems.map((item, i) => (
               <Link
                 to={item.path}
                 key={i}
                 onClick={() => setOpen(false)}
-                className="text-2xl font-bold uppercase tracking-wide hover:text-yellow-300 transition"
+                className="text-2xl  flex flex-col font-bold uppercase tracking-wide hover:text-yellow-300 transition"
               >
                 {item.text}
               </Link>
             ))}
+          </div>
+          <div className="flex flex-row gap-6 mt-10">
+          {Object.entries(DATA.contact.social).map(([name, social])=>(
+                <a
+                  key={name}
+                  href={social.url}
+                  target="_blank"
+                  className="text-md"
+                >
+                  <social.icon className="size-8"/>  
+                </a>
+              ))
+              }
+          </div>
           </nav>
         </div>
       </div>

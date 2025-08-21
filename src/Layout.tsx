@@ -4,11 +4,11 @@ import Navbar from './elements/Navbar'
 const Layout = () => {
   
   return (
-    <div className="flex min-h-[100vh] bg-[#020617] text-white">
-      <div className="fixed top-0 left-0 min-h-[80vh] z-50  ">
+    <div className="flex min-h-screen w-full bg-[#020617] text-white">
+      <div className="fixed top-0 left-0 min-h-[80vh] w-fit z-10">
         <Navbar />
       </div>
-      <div className="flex flex-1">
+      <div className="flex flex-1 ">
         <Outlet />
       </div>
     </div>

@@ -13,7 +13,7 @@ export function Hero() {
       <ParallaxClouds/>
       {/* Animated Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: [20, 0, 20] }}
         transition={{ repeat: Infinity, duration: 2 }}

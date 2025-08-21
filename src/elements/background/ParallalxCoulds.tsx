@@ -48,7 +48,7 @@ export default function ParallaxClouds() {
       {/* Styled About Me Section */}
       <section
   id="about"
-  className="pointer-events-auto absolute inset-0 z-20 brightness-100 flex flex-col items-center justify-center mx-auto text-center text-white select-text px-4"
+  className="pointer-events-auto absolute inset-0 z-1 brightness-100 flex flex-col items-center justify-center mx-auto text-center text-white select-text px-4"
 >
   {/* Main Heading */}
   <motion.h1
@@ -96,10 +96,10 @@ export default function ParallaxClouds() {
     transition={{ duration: 0.6, delay: 0.6 }}
     className="flex flex-wrap gap-4 justify-center"
   >
-    <RainbowButton variant="default" size="lg">
+    <RainbowButton variant="default" size="lg" className='text-black'>
       Download Resume
     </RainbowButton>
-    <RainbowButton variant="outline" size="lg">
+    <RainbowButton variant="outline" size="lg" className='text-white'>
       See My Work
     </RainbowButton>
   </motion.div>

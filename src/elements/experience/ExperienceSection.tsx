@@ -1,41 +1,51 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import ExperienceCard from "./ExperienceCard";
 import { experiences } from "./data";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { ScrollProgress } from "../../components/magicui/scroll-progress";
 
 export default function ExperienceSection() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    let p = 0;
-    const interval = setInterval(() => {
-      p += 1;
-      setProgress(p);
-      if (p >= 100) clearInterval(interval);
-    }, 30); // speed of progress fill
-    return () => clearInterval(interval);
-  }, []);
+  const containerRef = useRef(null);
 
   return (
-    <div className="flex relative justify-center items-center">
-      {/* Steps */}c
-      <div className="flex flex-col gap-10 w-full max-w-4xl">
-        {experiences.map((exp, idx) => {
-          const stepPercent = ((idx + 1) / experiences.length) * 100;
-          const isVisible = progress >= stepPercent;
+    <div // wrap everything for scroll detection
+      className="relative flex flex-col items-center min-h-[100vh]"
+      ref={containerRef}
+    >
+      {/* Progress Bar (Centered Vertical) */}
+      <div className="absolute max-lg:hidden left-1/2 top-0 h-[105%] flex pointer-events-none" style={{ transform: "translateX(-50%)"}}>
+        <ScrollProgress className="h-full w-1 " />
+      </div>
 
-          // Alternate layout: left for even, right for odd
-          const flexDirection = idx % 2 === 0 ? "flex-row" : "flex-row-reverse";
+      {/* Experience cards */}
+      <div className="relative w-full max-w-4xl flex flex-col gap-20">
+        {experiences.sort((a, b)=> a.order - b.order).map((exp, idx) => {
+          // Card appears when its own hook triggers in-view
+          const cardRef = useRef(null);
+          const inView = useInView(cardRef, { once: true, margin: "-100px 0px" });
 
+          // Layout: left or right
+          const align = idx % 2 === 0 ? "left" : "right";
           return (
-            <div key={idx} className={`relative flex items-center ${flexDirection} gap-6`}>
-              {/* Connector Dot: position on left or right accordingly */}
-              <div
-                className={`absolute top-0 w-6 h-6 rounded-full border-4 border-yellow-500 bg-gray-900 z-10 ${
-                  idx % 2 === 0 ? "-left-[3.15rem]" : "-right-[3.15rem]"
-                }`}
-              />
+            <div
+              key={idx}
+              ref={cardRef}
+              className={`relative flex w-full gap-14 min-h-[180px] ${align === "left" ? "justify-start" : "justify-end"}`}
+              style={{ alignItems: "center" }}
+            >
+              {/* Spacer for alignment */}
+              {align === "right" && <div className="w-1/2 max-lg:hidden"></div>}
+              {/* Card (animated in when inView) */}
+              <motion.div
+                initial={{ opacity: 0, x: align === "left" ? -50 : 50 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.07 * idx }}
+                className="w-1/2 max-lg:w-full 
+                "
+              >
                 <ExperienceCard exp={exp} />
+              </motion.div>
+              {align === "left" && <div className="w-1/2 max-lg:hidden"></div>}
             </div>
           );
         })}

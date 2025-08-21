@@ -13,25 +13,18 @@ export function EducationSection() {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 768) {
-      //   setArcConfig({
-      //     circleWidth: 1500,
-      //     angleBetweenMinorSteps: 0.5,
-      //     lineCountFillBetweenSteps: 5,
-      //     boundaryPlaceholderLinesCount: 7,
-      //   });
-      // } else if (window.innerWidth < 1024) {
         setArcConfig({
-          circleWidth: 2500,
-          angleBetweenMinorSteps: 0.6,
-          lineCountFillBetweenSteps: 5,
-          boundaryPlaceholderLinesCount: 25,
+          circleWidth: 1500,
+          angleBetweenMinorSteps: 1,
+          lineCountFillBetweenSteps: 8,
+          boundaryPlaceholderLinesCount: 15,
         });
       } else {
         setArcConfig({
           circleWidth: 4500,
-          angleBetweenMinorSteps: 0.6,
-          lineCountFillBetweenSteps: 10,
-          boundaryPlaceholderLinesCount: 35,
+          angleBetweenMinorSteps: 0.9,
+          lineCountFillBetweenSteps: 7,
+          boundaryPlaceholderLinesCount: 25,
         });
       }
     }
@@ -42,19 +35,22 @@ export function EducationSection() {
 
     // Cleanup
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [window.innerWidth]);
 
   return (
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-[0.8] scale-100 origin-center">
+    <div className=" top-1/2 left-1/2 scale-[0.8] scale-100 origin-center h-fit">
    <ArcTimeline
+      className={cn(
+        "[--step-line-active-color:#9780ff]",
+        "[--step-line-inactive-color:#737373]",
+        "[--placeholder-line-color:#737373]",
+        "[--time-active-color:#fff]",
+        "[--time-inactive-color:#a3a3a3]",
+        "[--description-color:#d4d4d4]"
+      )}
       data={TIMELINE}
-      defaultActiveStep={{ time: "2025 Q2", stepIndex: 0 }}
-      arcConfig={{
-        circleWidth: 4500,
-        angleBetweenMinorSteps: 0.4,
-        lineCountFillBetweenSteps: 8,
-        boundaryPlaceholderLinesCount: 50,
-      }}
+      defaultActiveStep={{ time: "2019", stepIndex: 0 }}
+      arcConfig={arcConfig}
     />
     </div>
   );
@@ -87,7 +83,7 @@ const TIMELINE: ArcTimelineItem[] = [
     time: "2019-22",
     steps: [
       {
-        icon: "bachelors",
+        icon: "BACHELORS",
         content: (<>University of Rajasthan, Jpr <br/> 81.2%</>),
       },
     ],
@@ -96,7 +92,7 @@ const TIMELINE: ArcTimelineItem[] = [
     time: "2022-24",
     steps: [
       {
-        icon: "masters",
+        icon: "MASTERS",
         content:
           (<>Amity University, Jpr <br/> 95.2%</>),
       },

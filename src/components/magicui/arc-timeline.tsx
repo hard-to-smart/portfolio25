@@ -177,17 +177,17 @@ export function ArcTimeline(props: ArcTimelineProps) {
                           className={cn(
                             "absolute bottom-0 left-1/2 aspect-square -translate-x-1/2",
                             isActive
-                              ? "translate-y-[calc(100%_+_14px)] scale-[1.2]  text-[var(--icon-active-color,#d4d4d4)]"
-                              : "translate-y-[calc(100%_+_4px)] scale-100  text-[var(--icon-inactive-color,#a3a3a3)]",
+                              ? "translate-y-[calc(100%_+_14px)] scale-[1.2] sm:text-2xl text-lg text-[var(--icon-active-color,#9780ff)]"
+                              : "translate-y-[calc(100%_+_4px)] scale-100 text-medium sm:text-lg text-[var(--icon-inactive-color,#a3a3a3)]",
                           )}
                         >
                           {step.icon}
                         </div>
                         <p
                           className={cn(
-                            "absolute bottom-0 left-1/2 line-clamp-3 flex w-[240px] -translate-x-1/2 translate-y-[calc(100%_+_42px)] items-center justify-center text-center text-sm transition-opacity duration-300 ease-in",
+                            "absolute bottom-0 left-1/2 line-clamp-3 flex w-[240px] -translate-x-1/2 translate-y-[calc(100%_+_42px)] items-center justify-center text-center text-medium sm:text-lg lg:text-xl transition-opacity duration-300 ease-in",
                             " text-[var(--description-color,#d4d4d4)]",
-                            isActive ? "opacity-100" : "opacity-0",
+                            isActive ? "opacity-100" : "max-lg:opacity-0",
                           )}
                         >
                           {step.content}
@@ -196,7 +196,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
                       {stepIndex === 0 && (
                         <div
                           className={cn(
-                            "absolute left-1/2 top-0 z-10 -translate-x-1/2 translate-y-[calc(-100%-24px)] whitespace-nowrap",
+                            "absolute left-1/2 top-0 z-10 -translate-x-1/2 translate-y-[calc(-100%-24px)] whitespace-nowrap text-xl sm:text-2xl lg:text-3xl",
                             isActive
                               ? " text-[var(--time-active-color,#d4d4d4)]"
                               : " text-[var(--time-inactive-color,#a3a3a3)]",
