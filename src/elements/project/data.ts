@@ -9,7 +9,7 @@ export const data = [
       "Client and Admin dashboards with dynamic scheduling and event tracking features.",
     },
     {
-      image: "../../src/assets/projects/movix.png",
+      image: "../../assets/projects/movix.png",
       title: "Movix Clone",
       order : 2,
       githubLink: "https://github.com/hard-to-smart/MovieClone",
@@ -18,7 +18,7 @@ export const data = [
       "React application with Context API for state management to browse movies and shows.",
     },
     {
-      image: "../../src/assets/projects/portfolio.png",
+      image: "../../assets/projects/portfolio.png",
       title: "Portfolio",
       order : 3,
       githubLink: "",
@@ -27,7 +27,7 @@ export const data = [
       "Javascript-based personal portfolio showcasing projects and skills with responsive design.",
     },
     {
-      image: "../../src/assets/projects/memory-game.png",
+      image: "../../assets/projects/memory-game.png",
       title: "Memory Game",
       order : 4,
       githubLink: "https://github.com/hard-to-smart/MemoryGame",
@@ -45,7 +45,7 @@ export const data = [
       "Full-featured ecommerce site with product listing, cart functionality, and checkout process.",
     },
     {
-      image: "../../src/assets/projects/spotify.png",
+      image: "../../assets/projects/spotify.png",
       title: "Spotify Clone",
       order : 6,
       githubLink: "https://github.com/hard-to-smart/SpotifyClone",
@@ -54,7 +54,7 @@ export const data = [
       "Next.js based music streaming app clone featuring playlists, search, and playback controls.",
     },
     {
-      image: "../../src/assets/projects/seven-up-down.png",
+      image: "../../assets/projects/seven-up-down.png",
       title: "7 Up 7 Down",
       order : 7,
       githubLink: "https://github.com/hard-to-smart/7-up-7-down",
@@ -63,7 +63,7 @@ export const data = [
       "JavaScript implementation of the classic 7 Up 7 Down number guessing game.",
     },
     {
-      image: "../../src/assets/projects/ping-pong.png",
+      image: "../../assets/projects/ping-pong.png",
       title: "Ping Pong",
       order : 8,
       githubLink: "https://github.com/hard-to-smart/PingPong",
@@ -72,7 +72,7 @@ export const data = [
       "Interactive ping pong game where player 1 can use 'w' and 's' keys to move the paddle up and down and the player 2 can use 'up arrow' and 'down arrow' to move the paddle respectively.",
     },
     {
-      image: "../../src/assets/projects/tic-tac-toe.png",
+      image: "../../assets/projects/tic-tac-toe.png",
       title: "Tic Tac Toe",
       order : 9,
       githubLink: "https://github.com/hard-to-smart/Tic_Tac_Toe",
