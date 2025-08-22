@@ -1,7 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "../../components/ui/card"
 import { View, Github } from "lucide-react";
-import { Button } from "../../components/ui/button";
-import { Badge } from "../../components/ui/badge";
 
 export function ProjectCard({card}) {
   
@@ -12,30 +10,34 @@ export function ProjectCard({card}) {
     className="
       relative overflow-hidden rounded-[40px] shadow-md group py-0 h-fit
       hover:scale-105 hover:shadow-[0_20px_45px_-10px_rgba(7,185,255,0.22)]"> 
-            <img src={card.image} alt="" className="w-full h-64 object-cover" />
+            <img src={card.image} alt="" className="w-[26rem] h-[26rem] object-cover max-xl:w-60 max-xl:h-60" />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center"></div>
-            <div className="absolute bottom-0 left-0 right-0 z-10 bg-white rounded-[40px] translate-y-full group-hover:translate-y-0 transition-transform duration-200 ease-in-out">
+            <div className="absolute bottom-0 left-0 right-0 z-1 bg-white rounded-[40px] translate-y-full group-hover:translate-y-0 transition-transform duration-200 ease-in-out">
               {/* Header */}
               <div className="flex items-center p-6 pb-3 bg-white rounded-tl-[40px] transition-transform group-hover:translate-y-0 -translate-y-full group-hover:translate-y-0 duration-200 ease-in-out relative">
-                  <p className="text-[1em] font-semibold text-[#6A515E]">
+                  <p className="text-xl font-bold text-[#6A515E]">
                     {card.title}
                   </p>
               </div>
               {/* Description */}
-              <p className="px-6 pb-3 text-[#D7BDCA] text-sm font-light line-clamp-3">{card.description}</p>
+              <p className={`px-6 pb-3 text-blue-800 text-sm md:text-md line-clamp-3 `}  style={{
+        display: '-webkit-box',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 3,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      }} >{card.description}</p>
               <div className="pb-6 px-6 flex justify-center gap-2 ">
-              <Button variant="outline" size="sm" className="rounded-xl p-4" >
+              <a className="flex flex-row border shadow-xs hover:text-accent-foreground bg-input/30 border-input hover:bg-input/50 rounded-xl p-4" href={card.githubLink}>
                 <Github />  Github
-              </Button>
-              <Button variant="outline" size="sm" className="rounded-xl p-4">
+              </a>
+              <a className="flex flex-row border shadow-xs hover:text-accent-foreground bg-input/30 border-input hover:bg-input/50  text-nowrap rounded-xl p-4" href={card.deployLink}>
               <View/> Live Preview
-              </Button>
+              </a>
               
               </div>
             </div>
-            {/* Overlay click area */}
-            <a href="#" className="absolute inset-0 z-20"></a>
           </Card>
   )
 }

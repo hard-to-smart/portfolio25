@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "../../lib/utils";
 import { type ComponentPropsWithoutRef,type ReactNode, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 export interface ArcTimelineItem {
   time: ReactNode;
@@ -93,15 +94,20 @@ export function ArcTimeline(props: ArcTimelineProps) {
       );
     },
   );
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true, // animate once when in view
+  });
 
   return (
     <div
       {...restProps}
+      ref={ref}
       className={cn("relative h-[380px] w-full overflow-hidden", className)}
     >
       <div
         style={{
-          transform: `translateX(-50%) rotate(${circleContainerRotateDeg}deg)`,
+          transform: inView ? `translateX(-50%) rotate(${circleContainerRotateDeg}deg)` : '',
           width: `${circleWidth}px`,
         }}
         className="absolute left-1/2 top-28 aspect-square origin-center rounded-full transition-all duration-500 ease-in-out"

@@ -10,9 +10,11 @@ import { SparklesText } from '../../components/magicui/sparkles-text';
 import { AuroraText } from '../../components/magicui/aurora-text';
 import { WordRotate } from "../../components/magicui/word-rotate";
 import { RainbowButton } from '../../components/magicui/rainbow-button';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function ParallaxClouds() {
+  const navigate = useNavigate()
   const cloudImages = [
       cloud6,
       cloud5,
@@ -39,7 +41,10 @@ export default function ParallaxClouds() {
     0.1,  // least exposed (darkest) for land/cloud4
   ];
 
-
+  const handleDownloadResume=()=>{
+    const resumeUrl = 'https://drive.google.com/file/d/1hEtEcf6MysQ2dZGWPZ8yPz8EKCo85Its/view?usp=drive_link';
+    window.open(resumeUrl, '_blank');
+  }
   // Adjusted bottom positions to vertically stack and space clouds nicely
   const bottomPositions = ['108px', '78px', '48px', '24px', '0px'];
 
@@ -96,10 +101,10 @@ export default function ParallaxClouds() {
     transition={{ duration: 0.6, delay: 0.6 }}
     className="flex flex-wrap gap-4 justify-center"
   >
-    <RainbowButton variant="default" size="lg" className='text-black'>
+    <RainbowButton variant="default" size="lg" className='text-black' onClick={()=> handleDownloadResume()}>
       Download Resume
     </RainbowButton>
-    <RainbowButton variant="outline" size="lg" className='text-white'>
+    <RainbowButton variant="outline" size="lg" className='text-white'  onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}>
       See My Work
     </RainbowButton>
   </motion.div>

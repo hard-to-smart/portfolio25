@@ -24,7 +24,7 @@ const cardVariant = {
 
 const Projects = () => {
   return (
-    <div className="relative w-full flex flex-col justify-center items-center gap-10 overflow-visible rounded-lg  p-10">
+    <div className="relative w-full flex flex-col justify-center items-center gap-10 overflow-visible rounded-lg px-20 md:px-28 max-sm:px-0 ">
       
       {/* Interactive Grid Pattern positioned behind */}
       <InteractiveGridPattern className="w-full h-full"
@@ -33,13 +33,13 @@ const Projects = () => {
       <Title prefix="My" mainText="Projects ." />
 
       <motion.div
-        className="flex flex-wrap gap-6 justify-center items-stretch w-full max-w-6xl"
+        className="flex flex-wrap gap-10 max-sm:gap-6 justify-evenly w-full "
         variants={containerVariant}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {data.map((project, i) => (
+        {data.sort((a,b)=> a.order - b.order).map((project, i) => (
           <motion.div
             key={project.title + i}
             variants={cardVariant}

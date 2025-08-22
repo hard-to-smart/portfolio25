@@ -8,10 +8,11 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { AuroraHero } from "./elements/background/AuroraHero";
 import ExperienceSection from "./elements/experience/ExperienceSection";
+import { Particles } from "./components/magicui/particles";
 
 const sections = [
   {
-    id: "#experience",
+    id: "experience",
     titleProps: { prefix: "My", mainText: "Experience ." },
     Component: ExperienceSection,
     className: 'flex-col min-h-[80vh]'
@@ -34,19 +35,14 @@ const Home = () => {
 
     <div>
       <Hero/>
- 
       {sections.map((section) => {
-        const { ref, inView } = useInView({
-          threshold: 0.3,
-        });
+        
         return (
           <section
             id={section.id}
             key={section.id}
             className={`flex ${section.className} items-center gap-10 py-10 justify-center w-[100vw]`}
-            ref={ref}
           >
-           
               <Title {...section.titleProps}/>
             <div
               className="relative flex-1 w-full px-10 "

@@ -27,6 +27,8 @@ export default function ChatContactForm() {
   const [messages, setMessages] = useState<Message[]>([
     { from: "system", text: "Hi! Please enter your email:" },
   ]);
+  const [formData, setFormData] = useState({email:"",
+name:"", message:""})
   const [stage, setStage] = useState<number>(0);
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
@@ -52,7 +54,6 @@ export default function ChatContactForm() {
     setTimeout(() => {
       let systemResponse = "";
 
-      // Basic validation example
       if (stage === 0) {
         systemResponse = /^\S+@\S+\.\S+$/.test(trimmed)
           ? "Thanks! Now, please type your name."
@@ -74,14 +75,39 @@ export default function ChatContactForm() {
       // Advance stage only if checks passed for email and name and message length
       if (
         (stage === 0 && /^\S+@\S+\.\S+$/.test(trimmed)) ||
-        (stage === 1 && trimmed.length > 1) ||
-        (stage === 2 && trimmed.length > 5)
-      ) {
-        setStage((st) => Math.min(st + 1, stages.length));
+        (stage === 1 && trimmed.length > 1) || (stage === 2 && trimmed.length > 5)
+      ){
+        setFormData((prev) => ({
+          ...prev,
+          [stages[stage]]: trimmed
+        }));
+        setStage((prev) => Math.min(prev + 1, stages.length));
       }
     }, 1500);
+    if(stage===2) sendFormData();
   };
 
+  const sendFormData= async ()=>{
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", 
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        ...formData,
+        access_key : import.meta.env.VITE_ACCESS_KEY,
+      }),
+      
+    });
+    const data = await response.json()
+    if (data.success) {
+      setMessages((prev) => [...prev, { from: "system", text: "Your message has been delivered successfully" }]);
+    } else {
+      console.log("Error", data);
+      setMessages((prev) => [...prev, { from: "system", text: "Unexpected error occured while delivering message" }]);
+    }
+  }
   // On Enter key press
   const handleKey = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !loading) {

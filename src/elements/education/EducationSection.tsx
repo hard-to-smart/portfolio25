@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArcTimeline, type ArcTimelineItem } from "../../components/magicui/arc-timeline";
 import { cn } from "../../lib/utils";
+import {motion} from "motion/react";
+import { useInView } from "react-intersection-observer";
 
 export function EducationSection() {
   const [arcConfig, setArcConfig] = useState({
@@ -36,9 +38,12 @@ export function EducationSection() {
     // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, [window.innerWidth]);
+  
 
   return (
-    <div className=" top-1/2 left-1/2 scale-[0.8] scale-100 origin-center h-fit">
+    <div
+      className="top-1/2 left-1/2 scale-[0.8] origin-center h-fit"
+    >
    <ArcTimeline
       className={cn(
         "[--step-line-active-color:#9780ff]",
@@ -52,6 +57,7 @@ export function EducationSection() {
       defaultActiveStep={{ time: "2019", stepIndex: 0 }}
       arcConfig={arcConfig}
     />
+    {/* </motion.div> */}
     </div>
   );
 }
