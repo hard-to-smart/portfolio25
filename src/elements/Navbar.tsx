@@ -47,7 +47,7 @@ const Navbar = () => {
       {/* Sidebar for Desktop */}
       <nav
         className={`
-          fixed left-0 top-0 h-screen w-20 md:w-28 flex flex-col justify-between items-center z-50
+          fixed left-0 top-0 h-screen w-20 md:w-24 flex flex-col justify-between items-center z-50
           transition-colors
           ${scrolled
             ? "bg-[#020617] sticky"
@@ -68,7 +68,7 @@ const Navbar = () => {
             <Link
               to={item.path}
               key={i}
-              className="md:p-8 p-4 cursor-pointer [writing-mode:vertical-lr] tracking-wide flex flex-row-reverse rotate-180 text-white text-lg font-bold md:text-xl lg:text-2xl"
+              className="md:p-8 p-4 cursor-pointer [writing-mode:vertical-lr] tracking-wide flex flex-row-reverse rotate-180 text-white text-medium font-bold md:text-lg lg:text-xl"
             >
               {item.text}
             </Link>

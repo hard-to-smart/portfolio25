@@ -18,7 +18,7 @@ export function ProjectCard({ card }:{ card: Card }  ) {
     className="
       relative overflow-hidden rounded-[40px] shadow-md group py-0 h-fit
       hover:scale-105 hover:shadow-[0_20px_45px_-10px_rgba(7,185,255,0.22)]"> 
-            <img src={card.image} alt="" className="w-[26rem] h-[26rem] object-cover max-xl:w-60 max-xl:h-60" />
+            <img src={card.image} alt="" className="w-[16rem] h-[16rem] object-cover max-xl:w-42 max-xl:h-42" />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center"></div>
             <div className="absolute bottom-0 left-0 right-0 z-1 bg-white rounded-[40px] translate-y-full group-hover:translate-y-0 transition-transform duration-200 ease-in-out">

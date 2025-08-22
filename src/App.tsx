@@ -1,11 +1,11 @@
 import Contact from './Contact'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider,  createHashRouter } from 'react-router-dom'
 import Home from './Home'
 import Layout from './Layout'
 import Projects from './elements/project/Projects'
 
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {path: '/',
   element: <Layout/>,
   // errorElement: ()=> <>error</>,

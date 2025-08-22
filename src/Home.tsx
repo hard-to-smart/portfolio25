@@ -39,7 +39,7 @@ const Home = () => {
           >
               <Title {...section.titleProps}/>
             <div
-              className="relative flex-1 w-full px-10 "
+              className="relative flex-1 w-full px-10 scale-[0.9]"
             >
               <section.Component />
             </div>

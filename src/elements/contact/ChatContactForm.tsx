@@ -120,8 +120,8 @@ name:"", message:""})
     <div
     className="
       flex flex-col 
-      min-w-[24rem] sm:w-sm md:w-md lg:w-lg
-      h-[36rem] md:h-[48rem] mx-auto">
+      min-w-[20rem] sm:w-xs 
+      h-[32rem] md:h-[34rem] mx-auto">
       <div
   ref={containerRef}
   className="flex-1 rounded-[25px] p-8 space-y-3 overflow-y-auto scrollbar-thin scrollbar-thumb-emerald-400"

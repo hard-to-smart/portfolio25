@@ -13,7 +13,7 @@ export default function ExperienceSection() {
       ref={containerRef}
     >
       {/* Progress Bar (Centered Vertical) */}
-      <div className="absolute max-lg:hidden left-1/2 top-0 h-[105%] flex pointer-events-none" style={{ transform: "translateX(-50%)"}}>
+      <div className="absolute max-lg:hidden left-1/2 top-0 flex pointer-events-none" style={{ transform: "translateX(-50%)",  height: "130%" }}>
         <ScrollProgress className="h-full w-1 " />
       </div>
 
