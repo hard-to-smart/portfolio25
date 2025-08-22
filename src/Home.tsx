@@ -1,14 +1,8 @@
-import { useEffect, useRef, useState } from "react";
 import Hero from "./elements/about/Hero";
 import EducationSection from "./elements/education/EducationSection";
-import Timeline from "./elements/experience/ExperienceSection";
 import { Skills } from "./elements/skills/Skills";
 import Title from "./elements/headings/Title";
-import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
-import { AuroraHero } from "./elements/background/AuroraHero";
 import ExperienceSection from "./elements/experience/ExperienceSection";
-import { Particles } from "./components/magicui/particles";
 
 const sections = [
   {

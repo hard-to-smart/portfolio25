@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
-import { pointsInner, pointsOuter } from "./utils.ts";
+import { pointsInner , pointsOuter } from "./utils.ts";
 
 const ParticleRing = () => {
   return (
@@ -41,7 +41,8 @@ const PointCircle = () => {
   );
 };
 
-const Point = ({ position, color }) => {
+
+const Point = ({ position, color } : { position: unknown[], color: string}) => {
   return (
     <Sphere position={position} args={[0.1, 10, 10]}>
       <meshStandardMaterial

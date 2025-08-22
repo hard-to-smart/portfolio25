@@ -1,20 +1,15 @@
-import React from 'react';
 import cloud2 from '../../assets/Clouds2.png';
 import cloud3 from '../../assets/Clouds3.png';
 import cloud4 from '../../assets/Clouds4.png';
 import cloud5 from '../../assets/Clouds5.png';
 import cloud6 from '../../assets/Clouds6.png';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Button } from '../../components/ui/button';
 import { SparklesText } from '../../components/magicui/sparkles-text';
 import { AuroraText } from '../../components/magicui/aurora-text';
 import { WordRotate } from "../../components/magicui/word-rotate";
 import { RainbowButton } from '../../components/magicui/rainbow-button';
-import { useNavigate } from 'react-router-dom';
-
 
 export default function ParallaxClouds() {
-  const navigate = useNavigate()
   const cloudImages = [
       cloud6,
       cloud5,
@@ -113,7 +108,6 @@ export default function ParallaxClouds() {
       <div className='brightness-[30%] opacity-[0.4] pointer-events-none absolute bottom-0  left-1/2 w-full max-w-[100vw] h-[300px] md:h-[320px] lg:h-[360px] -translate-x-1/2 top-25'>
       {cloudImages.map((cloud, i) => {
         const y = useTransform(scrollY, [0, 100], parallaxRanges[i]);
-        const brightnessValue = 1.0 - (i * 0.1 + 0.15); 
         return (
           <motion.img
             key={cloud}

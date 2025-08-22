@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { CSSProperties, ReactElement, useEffect, useState } from "react";
+import { type CSSProperties, type ReactElement, useEffect, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 interface Sparkle {
   id: string;

@@ -6,8 +6,6 @@ import {
   useMotionValue,
   motion,
   animate,
-  useScroll, 
-  useTransform
 } from "framer-motion";
 
 export const AuroraHero = () => {
@@ -24,8 +22,6 @@ export const AuroraHero = () => {
   }, []);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 100%, #020617 50%, ${color})`;
-  const border = useMotionTemplate`1px solid ${color}`;
-  const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
 
   return (

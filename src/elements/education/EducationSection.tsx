@@ -1,8 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArcTimeline, type ArcTimelineItem } from "../../components/magicui/arc-timeline";
 import { cn } from "../../lib/utils";
-import {motion} from "motion/react";
-import { useInView } from "react-intersection-observer";
 
 export function EducationSection() {
   const [arcConfig, setArcConfig] = useState({
@@ -57,7 +55,6 @@ export function EducationSection() {
       defaultActiveStep={{ time: "2019", stepIndex: 0 }}
       arcConfig={arcConfig}
     />
-    {/* </motion.div> */}
     </div>
   );
 }

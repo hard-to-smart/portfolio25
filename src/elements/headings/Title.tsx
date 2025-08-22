@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from "react"
+import {  useRef } from "react"
 import { AuroraText } from "../../components/magicui/aurora-text"
 
 type TitleProps = {

@@ -1,3 +1,5 @@
+import type { Vector3 } from "three";
+
 const MIN_RADIUS = 7.5;
 const MAX_RADIUS = 15;
 const DEPTH = 2;
@@ -42,8 +44,13 @@ const calculateColor = (x) => {
 const randomFromInterval = (min, max) => {
     return Math.random() * (max - min) + min;
 };
+export type Point = {
+    idx: number;
+    position?: Vector3 | [x: number, y: number, z: number] | [number, number, number] | [number] | [number, number];
+    color: string;
+  };
 
-export const pointsInner = Array.from(
+export const pointsInner: Point[] = Array.from(
     { length: NUM_POINTS },
     (v, k) => k + 1
 ).map((num) => {
@@ -63,7 +70,7 @@ export const pointsInner = Array.from(
     };
 });
 
-export const pointsOuter = Array.from(
+export const pointsOuter : Point[]= Array.from(
     { length: NUM_POINTS / 4 },
     (v, k) => k + 1
 ).map((num) => {
@@ -82,3 +89,4 @@ export const pointsOuter = Array.from(
     color,
     };
 });
+
