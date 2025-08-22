@@ -1,7 +1,15 @@
 import { Card } from "../../components/ui/card"
 import { View, Github } from "lucide-react";
 
-export function ProjectCard({card}) {
+type Card = {
+  image: string;
+  title: string;
+  order: number;
+  githubLink: string;
+  deployLink: string;
+  description: string;
+};
+export function ProjectCard({ card }:{ card: Card }  ) {
   
 
   return (

@@ -1,17 +1,17 @@
 import { ProjectCard } from "./ProjectCard";
 import Title from "../headings/Title";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { InteractiveGridPattern } from "../../components/magicui/interactive-grid-pattern";
 import { data } from "./data";
 
-const containerVariant = {
+const containerVariant : Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.15 },
   },
 };
 
-const cardVariant = {
+const cardVariant : Variants = {
   hidden: { opacity: 0, y: 60, scale: 0.85, rotateX: 15 },
   visible: {
     opacity: 1,

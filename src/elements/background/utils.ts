@@ -11,18 +11,18 @@ const NUM_POINTS = 2500;
  * --- Credit ---
  * https://stackoverflow.com/questions/16360533/calculate-color-hex-having-2-colors-and-percent-position
  */
-const getGradientStop = (ratio) => {
+const getGradientStop = (ratio: number) => {
     // For outer ring numbers potentially past max radius,
     // just clamp to 0
     ratio = ratio > 1 ? 1 : ratio < 0 ? 0 : ratio;
 
-    const c0 = LEFT_COLOR.match(/.{1,2}/g).map(
+    const c0 = LEFT_COLOR.match(/.{1,2}/g)?.map(
     (oct) => parseInt(oct, 16) * (1 - ratio)
     );
-    const c1 = RIGHT_COLOR.match(/.{1,2}/g).map(
+    const c1 = RIGHT_COLOR.match(/.{1,2}/g)?.map(
     (oct) => parseInt(oct, 16) * ratio
     );
-    const ci = [0, 1, 2].map((i) => Math.min(Math.round(c0[i] + c1[i]), 255));
+    const ci = [0, 1, 2].map((i) => (c0 && c1) ? Math.min(Math.round(c0[i] + c1[i]), 255) : 0);
     const color = ci
     .reduce((a, v) => (a << 8) + v, 0)
     .toString(16)
@@ -31,7 +31,7 @@ const getGradientStop = (ratio) => {
     return `#${color}`;
 };
 
-const calculateColor = (x) => {
+const calculateColor = (x: number) => {
     const maxDiff = MAX_RADIUS * 2;
     const distance = x + MAX_RADIUS;
 
@@ -41,7 +41,7 @@ const calculateColor = (x) => {
     return stop;
 };
 
-const randomFromInterval = (min, max) => {
+const randomFromInterval = (min: number, max: number) => {
     return Math.random() * (max - min) + min;
 };
 export type Point = {
@@ -52,7 +52,7 @@ export type Point = {
 
 export const pointsInner: Point[] = Array.from(
     { length: NUM_POINTS },
-    (v, k) => k + 1
+    (_, k) => k + 1
 ).map((num) => {
     const randomRadius = randomFromInterval(MIN_RADIUS, MAX_RADIUS);
     const randomAngle = Math.random() * Math.PI * 2;
@@ -72,7 +72,7 @@ export const pointsInner: Point[] = Array.from(
 
 export const pointsOuter : Point[]= Array.from(
     { length: NUM_POINTS / 4 },
-    (v, k) => k + 1
+    (_, k) => k + 1
 ).map((num) => {
     const randomRadius = randomFromInterval(MIN_RADIUS / 2, MAX_RADIUS * 2);
     const angle = Math.random() * Math.PI * 2;

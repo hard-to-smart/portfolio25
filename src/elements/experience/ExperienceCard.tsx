@@ -1,6 +1,14 @@
 import { Card } from "../../components/ui/card";
-
-function ExperienceCard({ exp }: { exp: typeof experiences[0] }) {
+type experiences={
+  title: string;
+  subtitle: string;
+  description: string;
+  date: string;
+  site: string;
+  tags: string[];
+  order: number;
+}[]
+function ExperienceCard({ exp }: { exp: experiences[0] }) {
   return (
     <Card
       className="
@@ -52,9 +60,9 @@ function ExperienceCard({ exp }: { exp: typeof experiences[0] }) {
 
         {/* Tags—wrapping and spacing */}
         <div className="flex flex-wrap gap-2 mb-4 text-gray-300 text-sm">
-          {exp.tags.map((tag) => (
+          {exp.tags.map((tag: string) => (
             <span
-              key={tag}
+              key={exp.order}
               className="px-2 py-1 rounded-full bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-gray-700 hover:border-blue-500 hover:scale-110 transition-transform cursor-pointer"
             >
               {tag}
